@@ -1,8 +1,10 @@
 package Interview_Programs;
-// input---> {1,2,3}
+
+
+//input---> {1,2,3}
 //k=3
 //output--->2
-// by using ARRAY AND SUBARRAY
+//by using ARRAY AND SUBARRAY
 public class sum_array_subarray {
 	
 	public static void main(String[]args) {
