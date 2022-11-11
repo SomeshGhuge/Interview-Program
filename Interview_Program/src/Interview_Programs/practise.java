@@ -40,6 +40,6 @@ public class practise {
 //	}else {
 //		System.out.println("Your number is noy armstrong number");
 //	}
-		
+	
 		
 	}}
