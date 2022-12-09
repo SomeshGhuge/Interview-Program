@@ -12,7 +12,7 @@ public class how_we_access_the_static_variable{
 		// 1) By using class name
 		     System.out.println("Your value is "+how_we_access_the_static_variable.a);
 		    
-		// 2) By using directly name
+		// 2) By using directly name in that class only
 		     System.out.println("Your value is "+a);
 		     
 	    // 3) By using object
@@ -24,7 +24,7 @@ public class how_we_access_the_static_variable{
 		     
 		     
 		     asdf.somya();// by using object
-				how_we_access_the_static_variable.somya();// By using class name
+	how_we_access_the_static_variable.somya();// By using class name
 				somya();//directly name
 		
 		

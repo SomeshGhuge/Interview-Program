@@ -9,40 +9,34 @@ import java.util.List;
 // int[] intArray = {52, 45, 32, 64, 12, 87, 78, 98, 23, 7};
 
 public class Array_Ascending_Order {
-	public static void main(String[] args) {
+public static void main(String[] args) {
 		
-		int [] array= {52, 45, 32, 64, 12, 87, 78, 98, 23, 7};
+		int [] array= {52, 45, 32, 64, 12, 87, 87,78, 98, 23, 7};
 		
-// First Way	
-		System.out.println("this is a iterator way--->");
 		Arrays.sort(array);
-		for(int a:array) {
-			System.out.println(a);
+		for(int i:array) {
+			System.out.println(i);
 		}
 		
-//Second Way
-		System.out.println("\nYour Ascending order array is--->");
-		System.out.println(Arrays.toString(array));
-		
-//Third Way
-		List<Integer> list = new ArrayList<Integer>();
-	        list.add(52);
-			list.add(45);
-			list.add(32);
-			list.add(64);
-			list.add(12);
-			list.add(87);
-			list.add(78);
-			list.add(98);
-			list.add(23);
-			list.add(7);
-			Collections.sort(list);
-			System.out.println("\nThis is a collection way--->");
-			System.out.println(list);
-			
-// Fourth way
-		System.out.println("\nThis is java 1.8 feature way--->");
+		List<Integer> list= new ArrayList<Integer>();
+		list.add(52);
+		list.add(45);
+		list.add(32);
+		list.add(64);
+		list.add(12);
+		list.add(87);
+		list.add(87);
+		list.add(78);
+		list.add(98);
+		list.add(23);
+		Collections.sort(list);
+		System.out.println(list);
+		for(int i:list) {
+			System.out.println(i);	
+		}
 		System.out.println(list.stream().sorted().toList());
-	}
+		
+	
+			}
 
 }

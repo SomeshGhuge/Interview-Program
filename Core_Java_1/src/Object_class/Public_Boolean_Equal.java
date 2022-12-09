@@ -13,7 +13,8 @@ public class Public_Boolean_Equal {
 		 
 		 
 		 System.out.println(asdf.equals(asdf1));
-		 // The ans is false because either in same class we creat a two object so the value is stored
+		 // The ans is false because either in same class 
+		 // we creat a two object so the value is stored
 		 // in two diff locations so it is not equals to each other.
 
 	 }

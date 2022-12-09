@@ -20,8 +20,8 @@ public class Remove_Characters {
 		String str=" ";
 		for(int i=0;i<s1.length();i++) {
 			if(arr[s1.charAt(i)]==0) {
-				str+=s1.charAt(i);
-				
+				 str+=s1.charAt(i);
+
 			}
 		}
 		System.out.println(str);

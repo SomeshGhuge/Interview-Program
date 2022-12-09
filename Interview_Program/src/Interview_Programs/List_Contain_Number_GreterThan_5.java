@@ -25,6 +25,7 @@ public class List_Contain_Number_GreterThan_5 {
 		}
 		
 //Second Way--->using java 1.8 features
-		System.out.println("Even numbers >5 is -->"+list.stream().filter(x->(x%2==0)).collect(Collectors.toList()));
+	System.out.println("Even numbers >5 is -->"+list.stream().filter(x->(x%2==0)).collect(Collectors.toList()));
+
 	}
 }

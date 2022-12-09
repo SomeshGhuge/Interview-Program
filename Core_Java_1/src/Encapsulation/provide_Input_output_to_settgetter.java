@@ -7,7 +7,7 @@ public class provide_Input_output_to_settgetter {
 		int a=scanner.nextInt();
 		Use_of_Setter_Getter somya=new Use_of_Setter_Getter();
 		somya.setSalary(a);
-		System.out.println("Salary of somya is-->"+somya.getsalary());
+		System.out.println("Salary of somya is-->"+somya.getSalary());
 	}
 
 }

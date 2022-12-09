@@ -3,18 +3,26 @@ package Interview_Programs;
 import java.util.Scanner;
 public class Armstrong_number{
 	public static void main(String[]args) {
-		Scanner scanner=new Scanner(System.in);
-		System.out.println("Enter  your number");
-		int a = scanner.nextInt();
-		int sum=0,rem=0,num=a;
-		for(sum=0;num>0;num=num/10) {
+		Scanner scanner= new Scanner(System.in);
+		Armstrong_number a=new Armstrong_number();
+		System.out.println("Enter Number");
+		int num=scanner.nextInt();
+		int Number=num;
+		int sum;
+		int rem=0;
+		
+		for(sum=0;num>0;num=num/10 ) {
 			rem=num%10;
-			sum=sum+(rem*rem*rem);
+			sum=sum+rem*rem*rem;
+			
 		}
-		if(sum==a) {
-			System.out.println("your number "+a+" is a armstrong number");
+		
+		if(sum==Number) {
+			System.out.println("Armstrong number");
 		}else {
-			System.out.println("Your number "+a+" is not a armstrong number");
+			System.out.println("Not Armstrong Number");
 		}
+		
+		
 	}
 }

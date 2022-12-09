@@ -20,7 +20,7 @@ public class Info {
 	static int  a=20;
 	int s= 30;
 	public static void main(String[]args) {
-		System.out.println("Your value of static int is "+a++);
+		System.out.println("Your value of static int is "+ ++a);
 		System.out.println("Your value of int is "+a);
 		
 		

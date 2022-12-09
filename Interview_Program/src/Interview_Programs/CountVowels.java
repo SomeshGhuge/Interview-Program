@@ -6,9 +6,9 @@ public class CountVowels {
 		int count=0;
 		int count2=0;
 		String b=a.toLowerCase();
-		for(int z=0;z<=a.length()-1;z++) {
-			if(a.charAt(z)=='a'||a.charAt(z)=='e'||a.charAt(z)=='i'||
-					a.charAt(z)=='o'||a.charAt(z)=='u') {
+		for(int z=0;z<b.length();z++) {
+			if(b.charAt(z)=='a'||b.charAt(z)=='e'||b.charAt(z)=='i'||
+					b.charAt(z)=='o'||b.charAt(z)=='u') {
 				count++;
 				
 			}else {

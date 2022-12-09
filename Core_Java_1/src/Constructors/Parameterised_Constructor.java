@@ -15,6 +15,7 @@ public class Parameterised_Constructor {
 	public static void main(String []args) {// main method
 		Parameterised_Constructor asdf= new  Parameterised_Constructor(112,"Somya","Latur");
 		//here we assign a value in object 
+		
 	}
 
 }

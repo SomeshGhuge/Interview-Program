@@ -9,18 +9,18 @@ import java.util.Map;
 
 public class count_Charactor {
 	
-	public static void getCharCount(String name) {
-		char Array[]=name.toCharArray();
-		Map<Character,Integer> charmap=new HashMap<Character,Integer>();
+	public static void getCharCount(String str) {
+		char Array[]=str.toCharArray();
+		Map<Character,Integer> str1=new HashMap<Character,Integer>();
 		
 		for(char c:Array) {
-			if(charmap.containsKey(c)) {
-				charmap.put(c, charmap.get(c)+1);
+			if(str1.containsKey(c)) {
+				str1.put(c, str1.get(c)+1);
 			}else {
-				charmap.put(c, 1);
+				str1.put(c, 1);
 			}
 		}
-		System.out.println(name+" : "+charmap);
+		System.out.println(str+" : "+str1);
 	}
 	
 	public static void main(String[] args) {

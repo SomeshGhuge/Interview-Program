@@ -3,15 +3,20 @@ package Encapsulation;
 public class Use_of_Setter_Getter {
 	// This is how we initialise the setter or getter info
 	private int salary;
-	public void setSalary(int sal) {
-		if (sal>0) {
-			salary=sal;
+
+	public int getSalary() {
+		if(salary>1000) {
+			return salary;
 		}else {
-			salary=0;
-		}
-	}
-	public int getsalary() {
+		System.out.println("Your salary is less than 1000");
 		return salary;
+		}
+		
 	}
+
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+
 
 }
