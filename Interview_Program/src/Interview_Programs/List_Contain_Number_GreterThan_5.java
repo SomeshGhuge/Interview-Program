@@ -22,7 +22,7 @@ public class List_Contain_Number_GreterThan_5 {
 			if(a%2==0) {
 				System.out.println("Even numbers greater than 5-->"+a);
 			}
-		}
+		}System.out.println("I am getting 6lpa pakage as a java developer ");
 		
 //Second Way--->using java 1.8 features
 	System.out.println("Even numbers >5 is -->"+list.stream().filter(x->(x%2==0)).collect(Collectors.toList()));

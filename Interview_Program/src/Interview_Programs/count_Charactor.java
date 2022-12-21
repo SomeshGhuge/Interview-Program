@@ -9,22 +9,20 @@ import java.util.Map;
 
 public class count_Charactor {
 	
+	public static void main(String[]args) {
+		getCharCount("AAAABBBCCD");
+	}
 	public static void getCharCount(String str) {
-		char Array[]=str.toCharArray();
-		Map<Character,Integer> str1=new HashMap<Character,Integer>();
-		
-		for(char c:Array) {
-			if(str1.containsKey(c)) {
-				str1.put(c, str1.get(c)+1);
+		Map<Character,Integer> map=new HashMap<Character,Integer>();
+		char array[]= str.toCharArray();
+		for(char c:array){
+			if(map.containsKey(c)) {
+				map.put(c, map.get(c)+1);
 			}else {
-				str1.put(c, 1);
+				map.put(c, 1);
 			}
 		}
-		System.out.println(str+" : "+str1);
-	}
-	
-	public static void main(String[] args) {
-		getCharCount("AAAABBCDDD");
+		System.out.println(str+" : "+map);
 	}
 }
 	

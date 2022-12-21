@@ -12,8 +12,8 @@ public class Reverse_array {
 //		System.out.println(a[1]);
 //		System.out.println(a[0]);
 		
-	//	for(int k:a) 
-	//	System.out.println(k);
+//		for(int k:a) 
+//		System.out.println(k);
 		
 		}
 }

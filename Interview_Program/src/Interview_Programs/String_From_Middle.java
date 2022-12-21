@@ -6,12 +6,13 @@ package Interview_Programs;
 import java.util.Scanner;
 public class String_From_Middle {
 	public static void main (String []args) {
-		Scanner scanner= new Scanner(System.in);
+	
 		String lowercase="";
 		String upercase="";
-	    char ch1;
+	    
 		  
 			    System.out.println("Enter your string");
+				Scanner scanner= new Scanner(System.in);
 				String str = scanner.nextLine();
 				int str1=(str.length())/2;
 			    System.out.println("If you want first part is  lowercase then press 'L'  or press 'U' ");

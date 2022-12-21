@@ -4,18 +4,9 @@ import java.util.Scanner;
 
 public class Starss {
 	public static void main(String args[]) {
-	// For print ***** like 5 lines
 	
 	
-	 /*	for(int i=1;i<=5;i++) {
-	
-			for(int j=1;j<=5;j++) {
-				System.out.println("*");
-			}
-			System.out.println();
-		} */
-	/*
-	  // Right Triangle
+	  System.out.println("<-----Right Triangle----->");
 	  
 	  	int value =1;
 		for (int i=1;i<=5;i++) {
@@ -55,11 +46,11 @@ public class Starss {
 				System.out.println("*****");
 			}
 	}     
-		*/
 		
 		
 		
-	/*  Trangular star from starting
+		
+	System.out.println("<----- Trangular star from starting------->");
 	  
 	 	
 		for (int i=1;i<=5;i++) {
@@ -73,33 +64,33 @@ public class Starss {
 				System.out.print("*");
 			}
 			System.out.println();
-		} */
+		}
 		
 		
 		
-
-		/*
-		int i,j,row=9;
+System.out.println("\n\n<-------- Rever Trangle from left side--------->");
+	
+		int p,q,r=9;
 		//Outer loop work for line by line means for rows
-		for(i=0;i<row;i++) {
+		for(p=0;p<r;p++) {
 			// Inner loop work for space
-			for(j=row-i;j>1;j--) {
+			for(q=r-p;q>1;q--) {
 				System.out.print(" ");
 			}
 			// Inner loop for columns
-			for(j=0;j<i;j++) {
+			for(q=0;q<p;q++) {
 				System.out.print("*");
 				
 			}
 	
 			System.out.println();
 		}
-		*/
 		
 		
-		/*   
-		 Dymond Pattern
-		 
+		
+		  
+		
+		 System.out.println("\n\n<------Star Reverser Trangle----->");
 		
 		int row,i,j,space=1;
 		System.out.println("Enter the number of rows you want to print:--");
@@ -129,11 +120,11 @@ public class Starss {
 				System.out.println("");
 			}
 			
-		}	       */
-		
-		Scanner scanner = new Scanner(System.in);
+		}	      
+		System.out.println("\n\n<-----Star trangle--->");
+		Scanner s = new Scanner(System.in);
 		System.out.println("Please enter number of rows how many you want");
-		int rows=scanner.nextInt();
+		int rows=s.nextInt();
 		System.out.println("<------ The star pattern is ---->");
 		for(int m=1; m<=rows;m++) {
 			// These is for spaces
@@ -141,11 +132,11 @@ public class Starss {
 				System.out.print(" ");
 			}
 			// These is for Star pattern
-			for(int p=1; p<=(m*2)-1;p++) {
+			for(int z=1; z<=(m*2)-1;z++) {
 				System.out.print("*");
 			}
 			System.out.println();
-		}
+		}    
 		
 	}
 }

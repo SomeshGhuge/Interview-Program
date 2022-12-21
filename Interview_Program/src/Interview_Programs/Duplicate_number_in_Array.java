@@ -12,7 +12,7 @@ public class Duplicate_number_in_Array {
 
 		if (a[i] == a[j]) { // check one element to remaining next other element for duplicacy
 		
-		System.out.println(a[i]); // Printing the duplicate numbers
+		System.out.println(a[j]); // Printing the duplicate numbers
 		
 	}
 }

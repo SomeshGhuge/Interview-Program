@@ -2,7 +2,7 @@ package Interview_Programs;
 
 import java.util.Scanner;
 
-public class Even_Odd_Prime_Numbers {
+public class Even_Odd_Numbers {
 	
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
@@ -12,7 +12,7 @@ public class Even_Odd_Prime_Numbers {
 		if(num%2==0) {
 			System.out.println("Your Number is even number");
 		}else {
-			System.out.println("Your Number is not even number");
+			System.out.println("Your Number is not even number it is odd number");
 		}
 		
 	}

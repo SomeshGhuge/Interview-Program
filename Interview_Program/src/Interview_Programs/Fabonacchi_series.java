@@ -12,14 +12,14 @@ public class Fabonacchi_series {
 		Scanner scanner=new Scanner(System.in);
 		System.out.println("enter Number");
 		int number=scanner.nextInt();
-		for(int i=1; i<=number; i++) {
-		   c=a+b;
-		   a=b;// b chi value a madhe geli
-		   b=c;// c chi value b madhe geli
-		   if(c<number) {
-				System.out.println(c);
-				}
+	for(int i=0;i<number;i++) {
+		c=a+b;
+		a=b;
+		b=c;
+		if(c<number) {
+			System.out.println(c);
 		}
+	}
 		
 		
 	}

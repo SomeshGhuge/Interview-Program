@@ -41,9 +41,7 @@ public class ArrayList_Capital_Cities {
         System.out.println("\nUsing iterator way");
         Iterator<String> itr=capitalCities.iterator();
         while(itr.hasNext()) {
-        	System.out.println(itr.next());
-        	
+        	System.out.println(itr.next());        	
         }
 	}
-
 }
