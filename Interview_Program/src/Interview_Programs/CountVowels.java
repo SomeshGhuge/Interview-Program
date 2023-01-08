@@ -1,21 +1,16 @@
 package Interview_Programs;
 
 public class CountVowels {
-	public static void main(String[] args) {
-		String a="Somesh Ghuge";
+	public static void main(String[]args) {
+		String str="SOmesh Ghuge";
 		int count=0;
-		int count2=0;
-		String b=a.toLowerCase();
-		for(int z=0;z<b.length();z++) {
-			if(b.charAt(z)=='a'||b.charAt(z)=='e'||b.charAt(z)=='i'||
-					b.charAt(z)=='o'||b.charAt(z)=='u') {
+		for(int i=0;i<str.length();i++) {
+			String str1=str.toUpperCase();
+			char ch=str1.charAt(i);
+			if(ch=='A'|| ch=='E'||ch=='I'||ch=='O'||ch=='U') {
 				count++;
-				
-			}else {
-				count2++;
 			}
 		}
-		System.out.println("Vowels are : "+count+"\nNon owels are : "+count2);
+		System.out.println("owels is --->"+count);
 	}
-
 }

@@ -4,23 +4,28 @@ package Interview_Programs;
 
 public class Array_Pair_Sum {
 	public static void main(String[]args) {
-		int arr[]= { -40, -5, 1, 3, 6, 7, 8, 20};
-		int sum=15;
-		getPair(arr,sum);
+		
+	int a[]= {40,20,30,50,80,60,10,25};
+	int sum=50;
+	getSumPair(a,sum);
 	}
-	public static void getPair(int arr[],int sum) {
+	
+	static int getSumPair(int a[],int sum) {
 		int count=0;
-		for(int i=0;i<arr.length;i++) {
+		for(int b=0;b<a.length;b++) {
 			int summ=0;
-			for(int j=i;j<arr.length;j++) {
-				summ=arr[i]+arr[j];
+			for(int j=b;j<a.length;j++) {
+				summ=a[b]+a[j];
+				if(sum==summ) {
+					count++;
+					
+				}
 			}
-			if(summ==sum) {
-				count++;
-			}
-			
 		}
-		System.out.println("Pairs of sum is --->"+count);
+		
+		System.out.println("sum of pair  50 Count is --->"+count);
+		return count;
+		
 	}
 }
 

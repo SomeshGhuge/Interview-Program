@@ -7,18 +7,19 @@ package Interview_Programs;
 //by using ARRAY AND SUBARRAY
 public class sum_array_subarray {
 	public static void main(String[]args) {
-		int a[]= {1,2,3,4,5,6};
-		int result=0;
-		int k=6;
+		int a[]= {1,2,3,4,5,6,7,8,9};
+		int  value=6;
+		int count=0;
 		for(int i=0;i<a.length;i++) {
-			int sum=0;
+			int summ=0;
 			for(int j=i;j<a.length;j++) {
-				sum=sum+a[i];
-				if(sum==k) {
-					result++;
+				summ=a[i]+a[j];
+				if(summ==value) { 
+					count++;
 				}
 			}
 		}
-		System.out.println("Your result is-->"+result);
+		System.out.println(count);
 	}
 }
+

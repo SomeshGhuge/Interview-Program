@@ -1,18 +1,20 @@
 package Interview_Programs;
 import java.util.*;
 public class Reverse_String {
-	public static String getReverseString(String reverse) {
-		String a=" ";
-		for(int i=0;i<reverse.length();i++) {
-			char ch=reverse.charAt(i);
-			a=ch+a;
-		}
-		return a;
-}
 	public static void main(String[]args) {
-
-		System.out.println(getReverseString("Somesh"));
-
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("Enter your new String");
+		String str=scanner.nextLine();
+		 getReverseString(str);
+	}
+	public static String getReverseString(String str) {
+		String str1=" ";
+		for(int i=0;i<str.length();i++) {
+			char ch=str.charAt(i);
+			str1=ch+str1;	
+		}
+		System.out.println(str1);
+		return str1;
 		
 	}
 }

@@ -2,26 +2,21 @@ package Interview_Programs;
 //153=1^3+5^3+3^3=153
 import java.util.Scanner;
 public class Armstrong_number{
-	public static void main(String[]args) {
+	public static void main (String[]args) {
 		Scanner scanner = new Scanner(System.in);
-		Armstrong_number a = new Armstrong_number();
-		System.out.println("Enter Number");
-		int num =scanner.nextInt();
-		int sum=0;
-		int Number =num;
-		int rem=0;
+		System.out.println("Enter your armstrong value");
+		int a=scanner.nextInt();
 		
-		 for(sum=0;num>0;num=num/10) {
-			 rem=num%10;
-			 sum=sum+rem*rem*rem;
-		 }
-		 
-		if(sum==Number) {
-			System.out.println("This is the Armstrong number");
-		}else {
-			System.out.println("This is Not Armstrong Number");
+		int sum,rem,num=0;
+		num=a;
+		for(sum=0;num>0;num=num/10) {
+			rem=num%10;
+			sum=sum+rem*rem*rem;
 		}
-		
-		
+		if(sum==a) {
+			System.out.println("This is anagram number");
+		}else {
+			System.out.println("This is not anagram number");
+		}
 	}
 }

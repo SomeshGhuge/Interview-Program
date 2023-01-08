@@ -5,52 +5,8 @@ import java.util.Scanner;
 public class Starss {
 	public static void main(String args[]) {
 	
-	
-	  System.out.println("<-----Right Triangle----->");
-	  
-	  	int value =1;
-		for (int i=1;i<=5;i++) {
-			int a=value*i;
-			if(a==1) {
-				System.out.println("*");
-			}
-			if(a==2) {
-				System.out.println("**");
-			}
-			if(a==3) {
-				System.out.println("***");
-			}
-			if(a==4) {
-				System.out.println("****");
-			}
-			if(a==5) {
-				System.out.println("*****");
-			}
-			
-		}
-		for (int i=4;i>=1;i--) {
-			int a=value*i;
-			if(a==1) {
-				System.out.println("*");
-			}
-			if(a==2) {
-				System.out.println("**");
-			}
-			if(a==3) {
-				System.out.println("***");
-			}
-			if(a==4) {
-				System.out.println("****");
-			}
-			if(a==5) {
-				System.out.println("*****");
-			}
-	}     
-		
-		
-		
-		
-	System.out.println("<----- Trangular star from starting------->");
+
+		System.out.println("<----- Trangular star from starting------->");
 	  
 	 	
 		for (int i=1;i<=5;i++) {
@@ -66,29 +22,6 @@ public class Starss {
 			System.out.println();
 		}
 		
-		
-		
-System.out.println("\n\n<-------- Rever Trangle from left side--------->");
-	
-		int p,q,r=9;
-		//Outer loop work for line by line means for rows
-		for(p=0;p<r;p++) {
-			// Inner loop work for space
-			for(q=r-p;q>1;q--) {
-				System.out.print(" ");
-			}
-			// Inner loop for columns
-			for(q=0;q<p;q++) {
-				System.out.print("*");
-				
-			}
-	
-			System.out.println();
-		}
-		
-		
-		
-		  
 		
 		 System.out.println("\n\n<------Star Reverser Trangle----->");
 		
@@ -127,14 +60,18 @@ System.out.println("\n\n<-------- Rever Trangle from left side--------->");
 		int rows=s.nextInt();
 		System.out.println("<------ The star pattern is ---->");
 		for(int m=1; m<=rows;m++) {
+			
 			// These is for spaces
 			for(int n=rows;n>m;n--) {
 				System.out.print(" ");
 			}
+			
 			// These is for Star pattern
 			for(int z=1; z<=(m*2)-1;z++) {
 				System.out.print("*");
 			}
+			
+			
 			System.out.println();
 		}    
 		

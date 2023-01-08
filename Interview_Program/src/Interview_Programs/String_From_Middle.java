@@ -5,35 +5,27 @@ package Interview_Programs;
 
 import java.util.Scanner;
 public class String_From_Middle {
-	public static void main (String []args) {
-	
-		String lowercase="";
-		String upercase="";
-	    
-		  
-			    System.out.println("Enter your string");
-				Scanner scanner= new Scanner(System.in);
-				String str = scanner.nextLine();
-				int str1=(str.length())/2;
-			    System.out.println("If you want first part is  lowercase then press 'L'  or press 'U' ");
-			    char ch=scanner.next().charAt(0);
-			   
-	       if (ch =='L'|| ch=='l') {
-	    	  String str2=str.substring(0, str1);
-	    	  lowercase=str2.toLowerCase();
-	    	  String str3=str.substring(str1);
-	    	  upercase=str3.toUpperCase();
-	           System.out.println("Your Output is--->"+lowercase+" "+upercase);
-		       }else {
-				      String str3=str.substring(str1);
-		              upercase=str3.toUpperCase();
-		              String str2=str.substring(0, str1);
-		    	      lowercase=str2.toLowerCase();
-			          System.out.println("Your Output is--->"+upercase+" "+lowercase);
-		         }
-	     
-	           
-	        
-		    
+
+	public static void main(String[]args) {
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("Enter your String Here");
+		
+		String name=scanner.nextLine();
+		String str1=name.substring(0, name.length()/2);
+		String str2=name.substring(name.length()/2,name.length());
+		
+		System.out.println("Which case you want first--->\nPress L for lowercase---Press U for uppercase");
+		char ch=scanner.next().charAt(0);
+		if(ch=='L'||ch=='l') {
+			String str3=str1.toLowerCase();
+			String str4=str2.toUpperCase();
+			System.out.println(str3+str4);
+		}else {
+			String str5=str1.toUpperCase();
+			String str6=str2.toLowerCase();
+			System.out.println(str5+str6);
+		}
+		
+		
 	}
 }

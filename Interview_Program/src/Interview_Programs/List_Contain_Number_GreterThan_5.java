@@ -9,7 +9,10 @@ import java.util.stream.Collectors;
 public class List_Contain_Number_GreterThan_5 {
 	public static void main(String[] args) {
 		List<Integer> list = new ArrayList<Integer>();
-		
+		list.add(0);
+		list.add(1);
+		list.add(2);
+		list.add(4);
 		list.add(5);
 		list.add(6);
 		list.add(7);
@@ -20,12 +23,14 @@ public class List_Contain_Number_GreterThan_5 {
 //first Way
 		for(int a:list) {
 			if(a%2==0) {
+				if(a>5) {
 				System.out.println("Even numbers greater than 5-->"+a);
+				}
 			}
-		}System.out.println("I am getting 6lpa pakage as a java developer ");
+		}
 		
 //Second Way--->using java 1.8 features
-	System.out.println("Even numbers >5 is -->"+list.stream().filter(x->(x%2==0)).collect(Collectors.toList()));
+	System.out.println("Even numbers >5 is -->"+list.stream().filter(x->(x>5)).filter(x->(x%2==0)).collect(Collectors.toSet()));
 
 	}
 }

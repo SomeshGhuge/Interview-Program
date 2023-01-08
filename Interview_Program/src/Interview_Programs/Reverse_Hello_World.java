@@ -6,7 +6,8 @@ public class Reverse_Hello_World{
 	public static void main (String[]args) {
 		String str="Hello World";
 		String str1=" ";
-		String str2 =" ";
+		String str2=" ";
+		String str3=" ";
 		
 		for(int i=0;i<str.length()/2;i++) {
 			char ch=str.charAt(i);
@@ -16,6 +17,12 @@ public class Reverse_Hello_World{
 			char ch=str.charAt(i);
 			str2=ch+str2;
 		}
+		for(int i=0;i<str.length();i++) {
+			char ch=str.charAt(i);
+			str3=ch+str3;
+		}
 		System.out.println(str1+" "+str2);
+		System.out.println(str3);
+		
 	}
 }

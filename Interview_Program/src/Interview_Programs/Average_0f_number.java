@@ -19,8 +19,10 @@ public class Average_0f_number {
 		int n3=scanner.nextInt();
 		System.out.println("Enter your Total Numbers");
 		int total=scanner.nextInt();
-	int b=a.getaverage(n1, n2, n3, total);
-	System.out.println(b);
+		int b=a.getaverage(n1, n2, n3, total);
+		System.out.println("This is output from method-->"+b);
+	int Average=(n1+n2+n3)/total;
+	System.out.println("This is output from simpal way-->"+Average);
 		
 	}
 

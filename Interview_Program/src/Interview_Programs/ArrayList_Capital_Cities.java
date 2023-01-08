@@ -7,41 +7,24 @@ import java.util.List;
 
 // write a program to cpital cities
 public class ArrayList_Capital_Cities {
-	public static void main(String[] args) {
+	public static void main(String[]args) {
+		List<String> s=new ArrayList<String>();
+		s.add("Maharashtra");
+		s.add("Gujrat");
+		s.add("Pune");
+		//s.add(null);// it is not sorted it gives null pointer exception
+		System.out.println("This is the first way--->"+s);
 		
-	List <String> capitalCities = new ArrayList<String>();
-	
-        capitalCities.add("Maharashtra");
-        capitalCities.add("Gujrat");
-        capitalCities.add("Mizoram");
-        capitalCities.add("Bihar");
-        capitalCities.add("Delhi");
-        capitalCities.add("Bengluru"); 
-        capitalCities.add("Patna");
-        capitalCities.add("Ahmdabad");
-        capitalCities.add("Nagaland");
-        capitalCities.add("Punjab");
-        
-        Collections.sort(capitalCities);
-// First Way
-        System.out.println("By using ForEach Loop--->");
-        for(String name:capitalCities) {
-        	System.out.println(name);
-        }
-        
-// Second way.
-        System.out.println("\nUsing java 1.8 features-->");
-        System.out.println(capitalCities.stream().sorted().toList());
-
-// Third Way
-        System.out.println("\nUsing normal way");
-        System.out.println(capitalCities);
-        
-// Fourth Way
-        System.out.println("\nUsing iterator way");
-        Iterator<String> itr=capitalCities.iterator();
-        while(itr.hasNext()) {
-        	System.out.println(itr.next());        	
-        }
+		for(String i:s) {
+			System.out.print(" "+i);
+		}
+		System.out.println("\nThis is 1.8 featue-->"+s.stream().sorted().toList());
+		
+		System.out.println("This is fourth way");
+		Iterator itr=s.iterator();
+		while(itr.hasNext()) {
+			System.out.println(itr.next());
+		}
+		
 	}
 }

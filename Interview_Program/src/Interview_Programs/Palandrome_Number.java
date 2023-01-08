@@ -4,21 +4,25 @@ import java.util.Scanner;
 // 151 
 public class Palandrome_Number {
 	public static void main(String[]args) {
-		Scanner scanner=new Scanner(System.in);
-		System.out.println("Enter your number--->");
-		int a =scanner.nextInt();
-		int rem,sum=0;
-		int num=a;
-		for(sum=0;num>0;num=num/10) {
-			rem=num%10;
-			sum= sum*10+rem;
-		}
-		if(sum==a) {
-			System.out.println("Your number is a plandrome number");
-		}else {
-			System.out.println("Your number is not palandrome number");
+//		Scanner scanner=new Scanner(System.in);
+//		System.out.println("Enter your number");
+//		int x=scanner.nextInt();
+//		
+		for(int i=1;i<=1000;i++) { 
+			
+		int a=0;
+		a=i;
+		int rem=0;
+		int sum=0;
+	
+		for(sum=0;a>0;a=a/10) {
+			rem=a%10;
+			sum=sum*10+rem;
 		}
 		
-	}
-
+		if(sum==i) {
+			System.out.println("This number is palandrome number-->"+i);
+		}
+	  }
+   }	
 }

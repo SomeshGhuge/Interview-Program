@@ -1,5 +1,7 @@
 package Interview_Programs;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 //1-->1
@@ -7,22 +9,19 @@ import java.util.Scanner;
 //3-->6
 //4--->24.....
 public class Factorial_number {
-	public int factor(int num) {
-		int factorial=1;
-		for(int i=1;i<=num;i++) {
-			factorial=i*factorial;
-		}
-		return factorial;
-	}
-	public static void main(String []args) {
-		Factorial_number fact= new Factorial_number();
+	public static void main(String[]args) {
 		Scanner scanner=new Scanner(System.in);
-		System.out.println("Enter value");
-		int b=scanner.nextInt();
-		int a=fact.factor(b);
-		
-		System.out.println(a);
-		
+		System.out.println("Enter number for which u want to get factorial");
+		int a =scanner.nextInt();
+		getFactorial(a);
 	}
-
+	static void getFactorial(int a) {
+		List<Integer> factorial=new ArrayList<Integer>();
+		int fact = 1;	
+		for(int i=1;i<=a;i++) {
+			fact=i*fact;
+			factorial.add(fact);
+		}
+		System.out.println("Your factors are--->"+fact);
+	}
 }

@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -12,25 +13,29 @@ import java.util.stream.Stream;
 public class Practise {
 
 	public static void main(String[]args) {
-		List<Integer> list1=Arrays.asList(1,2,3,4,5,6);
-		List<Integer> list2 = Arrays.asList(4,5,6,7,8,9);
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter Your First String");
+		String str=scanner.nextLine();
+		System.out.println("Enter your Second String");
+		String str1=scanner.nextLine();
+		String str2=str.toLowerCase();
+		String str3=str.toLowerCase();
 		
-	Stream<Integer> Alllists=Stream.concat(list1.stream(), list2.stream());
-	System.out.println(Alllists);
-	
-	List<Integer>All=Alllists.collect(Collectors.toList());
-	System.out.println("All Elements------------------->"+All);
-	
-	Set<Integer> Fulllist=All.stream().collect(Collectors.toSet());
-	System.out.println("Full List without repeatation-->"+Fulllist);
-	
-	Integer min = Fulllist.stream().min((x1,x2)->(x1 - x2)).get();
-	System.out.println("Minimum Number----------------->"+min);
-	
-	Integer max = Fulllist.stream().max((x1,x2)->(x1 - x2)).get();
-	System.out.println("Miximum Number----------------->"+max);
-	
-	Set<Integer> Duplicates=All.stream().filter(e-> Collections.frequency( All, e)>1).collect(Collectors.toSet());
-	System.out.println("Duplicates Number-------------->"+Duplicates);
+		if(str2.length()==str3.length()) {
+			
+			
+			char ch1[]=str2.toCharArray();
+			char ch2[]=str3.toCharArray();
+			boolean results=Arrays.equals(ch1, ch2);
+			
+			if(results) {
+				System.out.println("This is anagram String");
+			}else {
+				System.out.println("This is Not a Anagram String");
+			}
+		    
+		}else {
+			System.out.println("This is Not Anagram String");
+		}
 	}
 }

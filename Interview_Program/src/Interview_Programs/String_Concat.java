@@ -11,7 +11,8 @@ public class String_Concat {
 		System.out.println("Enter Your Second String word");
 		String s2=scanner.next();
 		
-		System.out.println(s1.concat(s2));
+		String str=s1.concat(s2);
+		System.out.println(str);
 	
 	}
 
