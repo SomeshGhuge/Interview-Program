@@ -19,5 +19,17 @@ public class Prime_number {
 		}else {
 			System.out.println("This is not prime number");
 		}
+
+	     
+	     if(isPrimeNumber(a)) {
+	    	 System.out.println("This number is a prime number ");
+	     }else {
+	    	 System.out.println("This number is a not prime number");
+	     }
+	  
 	}
+
+	  public static boolean isPrimeNumber(Integer number) {
+		return number > 1 &&  IntStream.range(2, number).noneMatch(i-> number % i == 0);
+	  }
 }
