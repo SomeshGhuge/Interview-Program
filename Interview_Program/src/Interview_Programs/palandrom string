@@ -1,0 +1,23 @@
+public class palndromString{
+
+	  public static void palandromString(String input){
+	   String str = "";
+	   
+	   for(int i=input.length()-1; i>=0; i--){
+	   char ch1 = input.charAt(i);
+	   str= str+ch1;
+	   }
+	   
+	   if(str.equals(input)){
+	     System.out.println("This is a palandrom string");
+	   }else{
+	     System.out.println("This is not a palandrom String");
+	   }
+	   
+	  }
+	  
+	  public static void main(String[]args){
+	    String input = "nitina";
+	    palandromString(input);
+	  }
+	}
