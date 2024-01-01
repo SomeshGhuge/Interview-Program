@@ -1,0 +1,22 @@
+public class Test {
+	
+	public static void main(String[]args) {
+
+		
+		Set<String> set= new HashSet<String>();
+		set.add("Ybgesh");
+		set.add("Samesh");
+		set.add("Svmnath");
+		set.add("Pknkaj");
+		
+		
+		List<String> str = new LinkedList<String>(set);
+		
+		Collections.sort(str,Comparator.comparing(s-> s.length() > 1 ? s.charAt(1):'0'));
+		
+		Set<String> see = new LinkedHashSet<String>(str);
+		
+		System.out.println(see);
+			
+	}
+}
