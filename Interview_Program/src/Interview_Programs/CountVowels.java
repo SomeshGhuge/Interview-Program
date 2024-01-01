@@ -12,5 +12,16 @@ public class CountVowels {
 			}
 		}
 		System.out.println("owels is --->"+count);
-	}
+	
+	       long vowelCount = countVowels(str);
+        
+        System.out.println("Number of vowels in the string: " + vowelCount);
+    }
+    
+    public static long countVowels(String input) {
+        return input.toLowerCase().chars()
+            .mapToObj(ch -> (char) ch)
+            .filter(ch -> "aeiou".contains(String.valueOf(ch)))
+            .count();
+    }
 }
