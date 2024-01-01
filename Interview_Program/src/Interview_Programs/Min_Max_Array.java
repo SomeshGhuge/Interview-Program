@@ -6,6 +6,14 @@ import java.util.Scanner;
 // write a program for min and max array
 public class Min_Max_Array {
 	public static void main(String[]args) {
+
+			List<Integer> al =Arrays.asList(1,2,3,11,12,13,15);
+		
+		System.out.println("Minimum Value : "+al.stream().min(Integer::compareTo).orElse(Integer.MAX_VALUE));
+		System.out.println("Maximun Value : "+al.stream().max(Integer:: compareTo).orElse(Integer.MIN_VALUE));
+
+
+		
 		int arr[]=new int[250];
 		Scanner scanner= new Scanner(System.in);
 		System.out.println("Enter your array 10 numers");
