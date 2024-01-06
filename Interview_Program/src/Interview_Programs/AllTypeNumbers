@@ -1,0 +1,187 @@
+package pakage;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+
+
+public class AllTypeNumbers{
+ public static void main(String[]args){
+   Scanner scanner = new Scanner(System.in);
+	  System.out.println("Enter your number here");
+	  int number = scanner.nextInt();
+	  
+   List<Integer> numbers = Arrays.asList(1,2,3,4,5,6,7,8,9);
+   averageNumber(numbers); // Here u can pass your numbers in as list
+	
+	  febonachiSeries(number);        //0,1,1,2,3,5,8....upto 20  ..enter here number =20
+	  armstrongNumber(number);        //153=1^3+5^3+3^3=153
+	  armstrongNumberForList(number); //Pass here up to which u want armstrong number
+	  evenOddNumber(number);          //0/2/4--> even   1/3/5 -->odd
+	  factorialNumber(number);        //4---> 1*2*3*4 = 24  
+	  palandromNumber(number);        //151 = 1 +  1*10+5 +  15*10+1  //rem+sum*10
+	  palandromNumberForList(number); //Pass here up to which u want palandrom number
+	  primeNumber(number);            //1/3/5/7 numbers divisible by 1 and its self 
+	  sumOfSubArray(numbers);         // Array[i] + Array[j] = value
+ }
+ 
+ public static void sumOfSubArray(List<Integer> numbers) {
+     System.out.println("Enter the sum value you want: ");
+     Scanner scanner = new Scanner(System.in);
+     int value = scanner.nextInt();
+     long count = numbers.stream()
+             .flatMap(i -> numbers.stream().filter(j -> i + j == value && !i.equals(j)))
+             .distinct()
+             .count() / 2;
+     
+     System.out.println("Total Counts are : " + count);
+//	 
+//	 System.out.println("Enter the sum value what u want ");
+//	 Scanner scanner = new Scanner(System.in);
+//	 int value =scanner.nextInt();
+//	 int count = 0;
+//	 Integer[] Array =numbers.toArray(new Integer[0]);
+//	 for(int i=0; i<Array.length; i++) {
+//		 for(int j=i+1; j<Array.length; j++) {
+//			 if((Array[i]+Array[j])== value) {
+//				System.out.println(Array[i]+ " + "+ Array[j]+" = "+value);
+//				count++;
+//			 }
+//		 }
+//	 }
+//	 System.out.println("Total Counts are : "+count);
+ }
+ 
+
+ 
+ public static void primeNumber(Integer number) {
+	 
+	 int count = 0;
+	 for(int i=1; i<=number; i++) {
+		 if(number%i==0) {
+			 count++;
+		 }
+	 }
+	 if(count <=2 ) {
+		 System.out.println("This is prime number :"+number);
+	 }else {
+		 System.out.println("This is not prime number :"+number);
+	 } 
+ }
+ 
+ public static void palandromNumberForList(Integer number) {
+	 LinkedList<Integer> palandromList = new LinkedList<Integer>();
+	 LinkedList<Integer> notPalandromList = new LinkedList<Integer>();
+	 for(int i=1; i<=number; i++) {
+		 int sum,rem = 0;
+		 int num=i;
+		 for (sum=0; num>0; num=num/10) {
+			 rem = num%10;
+			 sum = sum*10+rem;
+		 }
+		 if(sum==i) {
+			 palandromList.add(i);
+		 }else {
+			 notPalandromList.add(i);
+		 } 
+	 }
+	 System.out.println("Palandrom list numbers are : "+ palandromList);
+	 System.out.println("Numbers are not palandrom : "+notPalandromList);
+	 
+ }
+ public static void palandromNumber(Integer number) {
+	 
+	 int sum, rem=0;
+	 int num= number;
+	 for (sum=0; num>0 ;num=num/10) {
+		 rem=num%10;
+		 sum=sum*10+rem;
+	 }
+	 
+	 if(sum==number) {
+		 System.out.println("Your number :"+number+" it is a palandrom number");
+	 }else {
+		 System.out.println("Your number :"+number+" it is a not palandrom number");
+	 }
+	 
+ }
+ 
+ public static void factorialNumber(Integer number) {
+	 int fact=1;
+	 for(int i=1; i<=number; i++) {
+		 fact=fact*i;
+	 }
+	 System.out.println("Your number is "+number+" its factorial is  : "+fact);
+ }
+ public static void evenOddNumber(Integer number) {
+	
+	 if(number%2 ==0) {
+		 System.out.println(number+" This is a even number ");
+	 }else {
+		 System.out.println(number+ " This is a odd number ");
+	 }
+	 
+ }
+ public static void averageNumber(List<Integer> numbers) {
+	 
+	 double avgValue = numbers.stream().mapToDouble(Integer::doubleValue).average().orElse(0.0);
+	 
+	 System.out.println("Your average value is : "+ avgValue);
+ }
+ 
+ public static void armstrongNumberForList(int number) {
+	 LinkedList<Integer> armstrongNumbers = new LinkedList<Integer>();
+	 for(int i=1; i<=number;i++) {
+		 int sum=0;
+		 int rem=0;
+		 int num=i;
+		 
+		 for(sum=0;num>0; num=num/10) {
+			 rem= num%10;
+			 sum=sum+rem*rem*rem;
+		 }
+		 
+		 if(sum==i) {
+			 armstrongNumbers.add(i);
+		 }
+	 }
+	 System.out.println("Your armstrong numbers up to "+number+" is : "+armstrongNumbers);
+	 
+ }
+ public static void armstrongNumber(int number) {
+	 int sum=0;
+	 int num=number;
+	 int rem=0;
+	 
+	 for(sum=0; num>0;num=num/10) {
+		 rem=num%10;
+		 sum=sum+rem*rem*rem;
+	 }
+	 if(number==sum) {
+		 System.out.println("Your number is armstrong Number "+ number);
+	 }else {
+		 System.out.println("Your number ia not armstrongNumber "+number);
+	 }
+ }
+ 
+ public static void febonachiSeries(int number) {
+	 int  a=0;
+	 int  b=1;
+	 int  c=0;
+	 
+	  List<Integer> list= new ArrayList<Integer>();
+	  for(int i=1;i<=number; i++){
+	    c = a+b;
+	    if(c<number) {
+	    	list.add(c);
+	    }
+		
+		a=b;
+		b=c ;
+	  }
+	  System.out.println("Your Febonaci series is ---> "+ list);
+ }
+}
