@@ -1,0 +1,124 @@
+package pakage;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
+public class AllStrings {
+  public static void main(String[] args) {
+	        Scanner scanner = new Scanner(System.in);
+	        System.out.println("Enter your first string");
+	        String str1 = scanner.nextLine(); 
+	        System.out.println("Enter your second string");
+	        String str2 = scanner.nextLine(); 
+	     
+	        List<String> list = Arrays.asList("abc", "nitin", "aba","bbcc");
+	    
+	        removeCharsFromString(str1);
+	        palandromString(list);
+	        anagramString(str1, str2);
+	        vowelsCount(str1);
+	        reverseString(str1);
+	        reverseStringRecursive(str1);
+	        charCount(str1);
+	       
+  }
+  public static void charCount(String str) {
+	  HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+	  for(int i=0; i<str.length(); i++) {
+		  char ch = str.charAt(i);
+		  if(map.containsKey(ch)) {
+			  map.put(ch,map.get(ch)+1);
+		  }else {
+			  map.put(ch, 1);
+		  }
+	  }
+	 map.forEach((k,v)->System.out.println("Character : "+k+" Counts : "+v));
+  }
+  public static void reverseStringRecursive(String str) {
+		if(str.length()==0 || str.length()<=1) {
+			System.out.println(str);
+		}else {
+			System.out.print(str.charAt(str.length()-1));
+			reverseStringRecursive(str.substring(0,str.length()-1));
+		}
+	}
+  public static void reverseString(String str1) {
+	  String str = "";
+	  for(int i= 0; i<str1.length(); i++) {
+		  char ch= str1.charAt(i);
+		  str = ch+str;
+	  }
+	  System.out.println("Reverse String of "+str1+" is : "+str);
+	  
+  }
+  
+  public static void removeCharsFromString(String str1) {
+	  Scanner scanner = new Scanner(System.in);
+	  System.out.println("Enter which letter you don't want in that statement");
+      String charsToRemove = scanner.next();
+      
+      String result = str1.chars()
+              .filter(ch -> charsToRemove.indexOf(ch) == -1)
+              .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+              .toString();
+      
+      System.out.println("Result: " + result);
+  }
+  public static void palandromString(List<String> list) {
+	  List<String> result = filteredPalandromStrings(list);
+	  System.out.println("Palandrom strings are : "+result);
+  }
+  
+  public static List<String> filteredPalandromStrings(List<String>list){
+	  return list.stream()
+              .filter(AllStrings::isPalindrome)
+              .collect(Collectors.toList());
+  }
+  public static boolean isPalindrome(String str) {
+      String reversed = new StringBuilder(str).reverse().toString();
+      return str.equals(reversed);
+  }
+  
+  public static void vowelsCount(String str1) {
+	long count = count(str1);
+	System.out.println("Total vowels are : "+count);
+  }
+  public static long count(String str1) {
+	  return str1.toUpperCase()
+			  .chars()
+			  .mapToObj(ch-> (char) ch)
+			  .filter(ch-> "AEIOU".contains(String.valueOf(ch)))
+			  .count();
+  }
+  
+  public static void anagramString(String str1, String str2) {
+	  boolean isAnagram = checkAnagram(str1, str2);
+
+      if (isAnagram) {
+          System.out.println("These are anagram strings");
+      } else {
+          System.out.println("These are not anagram strings");
+      }
+  }
+
+	    public static boolean checkAnagram(String str1, String str2) {
+	        if (str1.length() != str2.length()) {
+	            return false;
+	        }
+
+	        String sortedStr1 = str1.chars()
+	                .sorted()
+	                .mapToObj(ch -> String.valueOf((char) ch))
+	                .collect(Collectors.joining());
+
+	        String sortedStr2 = str2.chars()
+	                .sorted()
+	                .mapToObj(ch -> String.valueOf((char) ch))
+	                .collect(Collectors.joining());
+
+	        return sortedStr1.equals(sortedStr2);
+	    }
+}
