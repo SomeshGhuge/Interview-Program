@@ -1,18 +1,30 @@
 package pakage;
 
+import java.util.List;
+
 public class Employee {
 
 	private int id;
 	private String firstName;
 	private String lastName;
 	private String city;
+	private List<String>number;
 	
-	public Employee(int id, String firstName, String lastName, String city) {
+	public List<String> getNumber() {
+		return number;
+	}
+
+	public void setNumber(List<String> number) {
+		this.number = number;
+	}
+
+	public Employee(int id, String firstName, String lastName, String city, List<String> number) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.city = city;
+		this.number = number;
 	}
 
 	@Override
