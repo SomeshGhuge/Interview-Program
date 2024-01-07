@@ -1,26 +1,30 @@
 package pakage;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class All_Employee_TestStreamAPi {
+public class TestStreamAPi {
 	
 	public static void main(String[]args) {
 		
 		List<Employee> al = new ArrayList<Employee>();
-		al.add(new Employee(1,"somesh","ghuge","latur"));
-		al.add(new Employee(2,"yogesh","ghuge","latur"));
-		al.add(new Employee(3,"pankaj","ghuge","latur"));
-		al.add(new Employee(4,"santosh","ghuge","latur"));
-		al.add(new Employee(5,"sahesh","ghuge","latur"));
-		al.add(new Employee(6,"samarth","ghuge","latur"));
+		al.add(new Employee(1,"somesh","ghuge","latur",Arrays.asList("8329819043","7517912362")));
+		al.add(new Employee(2,"yogesh","ghuge","latur",Arrays.asList("9329819043","8517912362")));
+		al.add(new Employee(3,"pankaj","ghuge","Pune",Arrays.asList("6329819043","6517912362")));
+		al.add(new Employee(4,"santosh","ghuge","Pune",Arrays.asList("5329819043","5517912362")));
+		al.add(new Employee(5,"sahesh","ghuge","Pune",Arrays.asList("4329819043","4517912362")));
+		al.add(new Employee(6,"samarth","ghuge","latur",Arrays.asList("3329819043","3517912362")));
+		al.add(new Employee(7,"samarth","ghuge","Pune",Arrays.asList("1329819043","1517912362")));
 		
 		Set<String> set = new HashSet<String>();
 	    set.add("SOMESH");
@@ -28,10 +32,98 @@ public class All_Employee_TestStreamAPi {
 	    set.add("YOGESH");
 	    set.add("SQNTOSH");
 	    
+	    grouping_By_City_AND_Count_And_Highest_Marks(al);
+	    
+	    get_List_allNumbers(al);
+	    
+	    get_alldata_by_Lastname(al);
+	    
+	    all_LastNames(al);
+	    
+	    filter_ByCity_SortBy_FirstName(al);
+	    
+	    select_ById(al);
+	    
 	    sort_By_Second_Character(set);
+	    
 		filterBy_Number_SortedBy_FirstName(al);
 	
 		
+	}
+	
+	public static void grouping_By_City_AND_Count_And_Highest_Marks(List<Employee> al) {
+		
+		Map<String, List<Employee>> list = al.stream()
+				.collect(Collectors.groupingBy(Employee :: getCity));
+		
+		Map<String, Long> count = al.stream()
+				.collect(Collectors.groupingBy(Employee :: getCity,Collectors.counting()));
+		
+		Entry<String, Long> marks = al.stream()
+				.collect(Collectors.groupingBy(Employee :: getCity,Collectors.counting()))
+				.entrySet().stream().max(Map.Entry.comparingByValue()).get();
+				
+		
+		System.out.println("Grouping by City and its Employee :"+list);
+		System.out.println("Grouping by City and Count :"+ count);
+		System.out.println("Grouping by City and get Highest Id/ Mars :"+ marks);
+	}
+	
+	public static void get_List_allNumbers(List<Employee> al) {
+		
+		List<List<String>> list = al.stream()
+				.map(Employee::getNumber)
+				.collect(Collectors.toList());
+		
+		List<String> str = al.stream()
+				.flatMap(employee -> employee.getNumber().stream())
+				.collect(Collectors.toList());
+		
+		System.out.println("Each Employee numbers with list using Map : "+list);
+		System.out.println("All Numbers without seperations using FlatMap : " + str);
+
+	}
+	
+	public static void get_alldata_by_Lastname(List<Employee> al) {
+		
+	  List<Employee> list = al.stream()
+			  .filter(employee -> employee.getLastName().equals("ghuge"))
+			  .collect(Collectors.toList());
+	  
+	  System.out.println("All Data By LastName : "+ list);
+	}
+	
+	public static void all_LastNames(List<Employee> al) {
+		
+		List<String> list = al.stream()
+				.map(Employee::getLastName)
+		//		.distinct()  // used for remove duplicate
+				.collect(Collectors.toList());
+		
+		Set<String> set = al.stream()
+				.map(Employee::getLastName)
+				.collect(Collectors.toSet());
+		
+		System.out.println("All Lastnames are using list : "+list);
+		System.out.println("All Lastnames are using set : "+set);
+	}
+	
+	public static void filter_ByCity_SortBy_FirstName(List<Employee>al) {
+		List<Employee> list = al.stream()
+				.filter(employee -> employee.getCity().equals("latur"))
+				.sorted(Comparator.comparing(Employee::getFirstName))
+				.collect(Collectors.toList());
+		
+		System.out.println("Employees filter by City & Sort by FirstName "+ list);
+	}
+	
+	public static void select_ById(List<Employee> al) {
+		
+	List<Employee> list = al.stream()
+			.filter(employee -> employee.getId()>3 && employee.getId()<6 )
+		    .collect(Collectors.toList());
+	
+	System.out.println("List filtered ById : -->"+ list);
 	}
 	
 	public static void sort_By_Second_Character(Set<String> set) {
