@@ -1,0 +1,15 @@
+SELECT salary FROM employees ORDER BY salary DESC LIMIT 3    ---> First three salaries 
+SELECT salary FROM(SELECT salary FROM table_name ORDER BY DESC LIMIT 1)AS A ORDER BY LIMIT 1;   --> 1st Hihest salary
+SELECT salary FROM(SELECT salary FROM table_name ORDER BY DESC LIMIT 2)AS A ORDER BY LIMIT 1;   --> 2nd Hihest salary
+SELECT salary FROM(SELECT salary FROM table_name ORDER BY DESC LIMIT 3)AS A ORDER BY LIMIT 1;   --> 3rd Hihest salary
+
+INSERT IN TO table_name filed_name VALUES value_name ;
+CREATE TABLE table_name(Column_name column_type);
+UDATE table_name SET column_name = vale ;
+DELETE FROM table_name WHERE condition;
+SELECT * FROM table_name WHERE condition;
+SELECT field_name FROM table_name WHERE condition;
+SELECT columns_name FROM table1 INNER JOIN table2 ON table1.column_name = table2.column_name;
+SELECT columns_name FROM table1 LEFT OUTER JOIN table2 ON table1.column_name =table2.column_name;
+SELECT column_name  FROM table1 RIGHT OUTER JOIN table2 ON table1.column_name   = table2.column_name;
+
