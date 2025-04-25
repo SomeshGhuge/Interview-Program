@@ -1,0 +1,173 @@
+package com.example.demo.Practise;
+
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class NewStringAndArrays1 {
+
+    public static void main(String[] args) {
+
+//  Recursive reverse string
+        String reverse = "Somesh";
+        String answer = reverseRecursive(reverse);
+        System.out.println("Reverse Recursive String : "+ answer);
+
+//  Given a list of integers, write a Java 8 Stream API code snippet to filter out the even numbers and then map each remaining number to its square.
+        List<Integer> lst = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        filterEvenNumbersAndMapItTOItsSquare(lst);
+
+//  Suppose you have a list of strings representing names. Write a Java 8 Stream API code snippet to group these names by their first letter and count how many names start with each letter.
+        List<String> lst1 = Arrays.asList("Somesh", "Yogesh", "Samarth", "Radha", "Sai", "Ajay", "Aditya", "Ganesh", "Mahesh");
+        grupingByFirstLetterAndCountThatStrings(lst1);
+
+//  Create a Java 8 Stream API code snippet to sort a list of strings alphabetically and then limit the result to the first five strings.
+        List<String> lst2 = Arrays.asList("banana", "apple", "grape", "kiwi", "orange", "mango", "pineapple");
+        sortAndLimit(lst2);
+
+//  Given a list of lists of integers, write a Java 8 Stream API code snippet to flatten this structure into a single list of integers.
+        int[][] arr = {{1, 2, 3, 4}, {4, 5, 6}, {6, 7, 8, 9}, {10, 11}};
+        flattenArrayIntoList(arr);
+
+//  Write a Java 8 Stream API code snippet to find the maximum value from a list of integers using the reduce() operation.
+        List<Integer> lst4 = Arrays.asList(15, 6, 2, 9, 17, 25, 8, 10);
+        UsingReduceFindMaxValue(lst4);
+
+//  Suppose you have a large list of numbers. Write a Java 8 Stream API code snippet to find the sum of these numbers using parallel streams.
+        List<Integer> lst5 = Arrays.asList(1000, 2000, 3000, 7000, 8000, 1000);
+        sumOfValuesInListUsingParallelStream(lst5);
+
+//  Given a list of integers with duplicate elements, write a Java 8 Stream API code snippet to find the distinct elements in the list.
+        List<Integer> lst6 = Arrays.asList(1, 2, 3, 4, 5, 1, 2, 3, 6, 7, 8, 9, 7, 8, 10);
+        distinctList(lst6);
+
+//  Create a Java 8 Stream API code snippet to concatenate two lists of strings into a single stream and then convert it to uppercase.
+        List<String> list1 = Arrays.asList("apple", "banana", "orange");
+        List<String> list2 = Arrays.asList("grape", "kiwi", "pineapple");
+        concatConvertUppercase(list1, list2);
+
+//  sort in reverse and get first record
+        List<Integer> rever = Arrays.asList(1, 2, 4, 3, 5, 6);
+        sortAndReverseAndGet1(rever);
+
+//  Below Sentence which and how many times words are repeated
+        String name = "Java python java react";
+        repeatedWordsAndCount(name);
+
+//  String problem
+        String str1 = "abcd";
+        String str2 = "pqrs";
+        System.out.println("For 1st scenario : "+mergedStrings( str1,str2));
+
+        String str3 = "abcd";
+        String str4 = "pq";
+        System.out.println("For 2nd scenario : "+mergedStrings( str3,str4));
+
+        String str5 = "ab";
+        String str6 = "pqrs";
+        System.out.println("For 3rd scenario : "+mergedStrings( str5,str6));
+    }
+
+    public static String reverseRecursive(String str){
+        if(str.isEmpty()){
+            return str;
+        }
+        return reverseRecursive(str.substring(1)) + str.charAt(0);
+    }
+
+    public static String mergedStrings(String str1, String str2){
+
+        int i=0;
+        int j=0;
+        StringBuilder  mergedStrings = new StringBuilder();
+
+        while(i<str1.length() && j<str2.length()){
+            mergedStrings.append(str1.charAt(i++));
+            mergedStrings.append(str2.charAt(j++));
+        }
+
+        while(i<str1.length()){
+            mergedStrings.append(str1.charAt(i++));
+        }
+
+        while(j<str2.length()){
+            mergedStrings.append(str2.charAt(j++));
+        }
+        return mergedStrings.toString();
+    }
+
+    public static void filterEvenNumbersAndMapItTOItsSquare(List<Integer> lst) {
+        List<Integer> evenList = lst.stream().filter(n -> n % 2 == 0).collect(Collectors.toList());
+        evenList.forEach((k) -> System.out.println(k));
+        Map<Integer, Integer> squareMap = evenList.stream().collect(Collectors.toMap(n -> n, n -> n * n));
+        squareMap.forEach((k, v) -> System.out.println(k + " : " + v));
+
+        //OR
+        lst.stream()
+                .filter(n -> n % 2 == 0)
+                .collect(Collectors.toMap(n -> n, n -> n * n))
+                .forEach((k, v) -> System.out.println(k + " : " + v));
+    }
+
+    public static void grupingByFirstLetterAndCountThatStrings(List<String> lst) {
+        lst.stream()
+                .collect(Collectors.groupingBy(o -> o.charAt(0), Collectors.counting()))
+                .forEach((k, v) -> System.out.println(k + " : " + v));
+    }
+
+    public static void sortAndLimit(List<String> lst) {
+        lst.stream()
+                .sorted()
+                .limit(5)
+                .collect(Collectors.toList())
+                .forEach(System.out::println);
+    }
+
+    public static void flattenArrayIntoList(int[][] arr) {
+        Stream.of(arr)
+                .flatMapToInt(n -> Arrays.stream(n).sorted())
+                .boxed()
+                .collect(Collectors.toList())
+                .forEach((k) -> System.out.println(k));
+    }
+
+    public static void UsingReduceFindMaxValue(List<Integer> lst) {
+        Integer number = lst.stream().reduce(Integer.MIN_VALUE, Integer::max);
+        Integer minValue = lst.stream().reduce(Integer.MAX_VALUE,Integer::min);
+        System.out.println("Largest Number : " + number);
+    }
+
+    public static void sumOfValuesInListUsingParallelStream(List<Integer> lst) {
+        Integer i = lst.parallelStream().mapToInt(o -> o.intValue()).sum();
+//        lst.stream().mapToInt(o-> o.intValue()).sum();
+        System.out.println(" Sum of values are : " + i);
+    }
+
+    public static void distinctList(List<Integer> lst) {
+        lst.stream().distinct().forEach(System.out::println);
+    }
+
+    public static void concatConvertUppercase(List<String> lst1, List<String> lst2) {
+        Stream<String> concatString = Stream.concat(lst1.stream(), lst2.stream());
+        concatString.map(o -> o.toUpperCase()).forEach(System.out::println);
+    }
+
+    public static void sortAndReverseAndGet1(List<Integer> lst) {
+        Integer value = lst.stream()
+                .sorted(Comparator.comparingInt(Integer::intValue).reversed())
+                .toList()
+                .get(0);
+        System.out.println("Sort and Reverse and Get first Value : " + value);
+    }
+
+    public static void repeatedWordsAndCount(String name) {
+        Map<String, Long> counterMap = Arrays.stream(name.toLowerCase().split(" "))
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        counterMap.forEach((k, v) -> {
+            if (v > 1) {
+                System.out.println(k + " : " + v);
+            }
+        });
+    }
+}
