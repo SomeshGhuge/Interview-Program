@@ -1,0 +1,167 @@
+package com.example.demo.Practise;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Scanner;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class AllStrings {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter your first string");
+        String str1 = scanner.nextLine();
+        System.out.println("Enter your second string");
+        String str2 = scanner.nextLine();
+
+        List<String> list = Arrays.asList("abc", "nitin", "aba", "bbcc");
+
+        removeCharsFromString(str1);
+        palandromStringList(list);
+        palandromString(str1);
+        anagramString(str1, str2);
+        vowelsCount(str1);
+        reverseString(str1);
+        String reverseStringUsingRecursion = reverseStringRecursive(str1);
+        System.out.println("Reverese  String using Recursion : "+ reverseStringUsingRecursion);
+        charCount(str1);
+
+    }
+
+    public static void charCount(String str) {
+        HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (map.containsKey(ch)) {
+                map.put(ch, map.get(ch) + 1);
+            } else {
+                map.put(ch, 1);
+            }
+        }
+        map.forEach((k, v) -> System.out.println(k + " : " + v));
+
+        str.chars()
+                .mapToObj(ch->String.valueOf((char) ch))
+                .collect(Collectors.groupingBy(Function.identity(),Collectors.counting()))
+                .forEach((k,v)-> System.out.println(k+" : "+v));
+    }
+
+    public static String reverseStringRecursive(String str) {
+        if (str.isEmpty()) {
+            return str;
+        }
+        return reverseStringRecursive(str.substring(1)) + str.charAt(0);
+    }
+
+    public static void reverseString(String str1) {
+        String str = "";
+        for (int i = 0; i < str1.length(); i++) {
+            char ch = str1.charAt(i);
+            str = ch + str;
+        }
+        System.out.println("Reverse String of " + str1 + " is : " + str);
+    }
+
+    public static void removeCharsFromString(String str1) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter which letter you don't want in that statement");
+        String charsToRemove = scanner.next();
+
+        String result = str1.chars()
+                .filter(ch -> charsToRemove.indexOf(ch) == -1)
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
+       System.out.println("Result: " + result);
+    }
+
+    public static void palandromString(String str1) {
+        String str = new StringBuilder(str1).reverse().toString();
+        if (str.equals(str1)) {
+            System.out.println("Given string : " + str1 + " is a palandrom string");
+        }
+
+    //Normal way
+        String reverse="";
+        for(int i =str1.length()-1;i>=0;i--){
+            char ch = str1.charAt(i);
+            reverse=reverse+ch;
+        }
+        if(str1.equals(reverse)){
+            System.out.println("YYYYYYYYYYYYYYYYYY");
+        }else{
+            System.out.println("NNNNNNNNNNNNNNNN");
+
+        }
+    }
+
+
+    public static void palandromStringList(List<String> list) {
+        List<String> result = filteredPalandromStrings(list);
+        System.out.println("Palandrom strings are : " + result);
+    }
+
+    public static List<String> filteredPalandromStrings(List<String> list) {
+        return list.stream()
+                .filter(AllStrings::isPalindrome)
+                .collect(Collectors.toList());
+    }
+
+    public static boolean isPalindrome(String str) {
+        String reversed = new StringBuilder(str).reverse().toString();
+        return str.equals(reversed);
+    }
+
+    public static void vowelsCount(String str1) {
+
+        long count = str1.toUpperCase()
+                .chars()
+                .mapToObj(ch -> (char) ch)
+                .filter(ch -> "AEIOU".contains(String.valueOf(ch)))
+                .count();
+
+        System.out.println("Total vowels are : " + count);
+    }
+
+
+    public static void anagramString(String str1, String str2) {
+        boolean isAnagram = checkAnagram(str1, str2);
+
+        if (isAnagram) {
+            System.out.println("These are anagram strings");
+        } else {
+            System.out.println("These are not anagram strings");
+        }
+    }
+
+    public static boolean checkAnagram(String str1, String str2) {
+        if (str1.length() != str2.length()) {
+            return false;
+        }
+
+        //Normalway
+        char[] s1Arrays = str1.toCharArray();
+        char[] s2Arrays = str2.toCharArray();
+        Arrays.sort(s1Arrays);
+        Arrays.sort(s2Arrays);
+        if(Arrays.equals(s1Arrays,s2Arrays)){
+            System.out.println("Strings are anagrammmmmmmmmmmm");
+        }else{
+            System.out.println("Strings are not anagrammmmmmmmmmmm");
+
+        }
+
+       //Using function
+        String sortedStr1 = str1.chars()
+                .sorted()
+                .mapToObj(ch -> String.valueOf((char) ch))
+                .collect(Collectors.joining());
+
+        String sortedStr2 = str2.chars()
+                .sorted()
+                .mapToObj(ch -> String.valueOf((char) ch))
+                .collect(Collectors.joining());
+
+        return sortedStr1.equals(sortedStr2);
+    }
+}
