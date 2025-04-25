@@ -1,0 +1,68 @@
+package com.example.demo.controller;
+
+import com.example.demo.entity.Employee;
+import com.example.demo.service.EmployeeService;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Comparator;
+import java.util.List;
+
+@RestController
+@RequestMapping("/api")
+public class EmployeeController {
+
+    @Autowired
+    private EmployeeService employeeService;
+    private static final org.slf4j.Logger log = LoggerFactory.getLogger(EmployeeController.class);
+
+    @GetMapping("/getAllEmployee")
+    public ResponseEntity<List<Employee>>getAllEmployee(){
+        log.info("Inside getAllEmployee method ");
+        List<Employee> allEmployee = employeeService.getAllEmployee();
+        System.out.println(
+                allEmployee.stream()
+                .sorted(Comparator.comparing(Employee::getPhoneNumber).reversed()).toList());
+
+        System.out.println(allEmployee.stream().filter(employee -> employee.getId()>1).toList().get(0).getPhoneNumber());
+
+        log.info("Fetched allEmployees from database");
+        return ResponseEntity.ok(allEmployee);
+    }
+
+    @PostMapping("/addEmployee")
+    public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee){
+        log.info("Inside addEmployee with RequestBody Employee : "+ employee);
+        Employee addedEmployee = employeeService.addEmployee(employee);
+        log.info("Added Employee sucessfully in database "+ employee);
+        return ResponseEntity.ok(addedEmployee);
+    }
+
+    @PutMapping("/updateEmployee")
+    public ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee){
+        if(employee.getId() < 0 ){
+            throw new RuntimeException("EmployeeId must not smaller than 0 ");
+        }
+        Employee updatedEmployee = employeeService.updateEmployee(employee);
+        log.debug("updated Employee : "+ updatedEmployee);
+        return ResponseEntity.ok(updatedEmployee);
+    }
+
+    @DeleteMapping("/deleteEmployee/{id}")
+    public ResponseEntity<Employee> deleteEmployee(@PathVariable Long id){
+        Employee deletedEmployee = employeeService.deleteEmployee(id);
+        return ResponseEntity.ok(deletedEmployee);
+    }
+
+    @GetMapping("/getSpecificData")
+    public ResponseEntity<List<Employee>>getSpecificData(){
+        log.info("Inside getSpecificData method ");
+        List<Employee> allEmployee = employeeService.getSpecificData();
+        log.info("Fetched getSpecificData from database");
+        return ResponseEntity.ok(allEmployee);
+    }
+
+
+}
